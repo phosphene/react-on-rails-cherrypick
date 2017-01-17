@@ -1,28 +1,14 @@
-[![Codeship Build Status](https://codeship.com/projects/287b26d0-0c05-0133-7a33-02e67aca5f06/status?branch=master)](https://app.codeship.com/projects/90975) [![Build Status](https://travis-ci.org/shakacode/react-webpack-rails-tutorial.svg?branch=code_coverage-linting)](https://travis-ci.org/shakacode/react-webpack-rails-tutorial) [![Dependency Status](https://gemnasium.com/shakacode/react-webpack-rails-tutorial.svg)](https://gemnasium.com/shakacode/react-webpack-rails-tutorial) [![Code Climate](https://codeclimate.com/github/shakacode/react-webpack-rails-tutorial/badges/gpa.svg)](https://codeclimate.com/github/shakacode/react-webpack-rails-tutorial) [![Coverage Status](https://coveralls.io/repos/shakacode/react-webpack-rails-tutorial/badge.svg?branch=master&service=github)](https://coveralls.io/github/shakacode/react-webpack-rails-tutorial?branch=master)
-
-Aloha from Justin Gordon ([bio](http://www.railsonmaui.com/about)) and the [ShakaCode](http://www.shakacode.com) Team! We're actively looking for new projects. If you like this project and **React on Rails**, please consider contacting me at [justin@shakacode.com](mailto:justin@shakacode.com) if we could potentially help you in any way. Besides consulting on bigger projects, [ShakaCode](http://www.shakacode.com) is doing Skype plus Slack/Github based coaching for React on Rails. See our blog post [Can ShakaCode Help You?](https://blog.shakacode.com/can-shakacode-help-you-4a5b1e5a8a63#.jex6tg9w9) for more information. 
-
-We're offering a free half-hour project consultation, on anything from React on Rails to any aspect of web application development for both consumer and enterprise products. In addition to React.js and Rails, we're doing react-native iOS and Android apps!
-
-Your support keeps this project going.
-
-(Want to become a contributor? [Contact us](mailto:contact@shakacode.com) for an Slack team invite! Also, see ["easy" issues](https://github.com/shakacode/react_on_rails/labels/easy) and [issues for the full tutorial](https://github.com/shakacode/react-webpack-rails-tutorial/issues?q=is%3Aissue+is%3Aopen+label%3Aeasy).)
+# React, React-Bootstrap, Mobx, ES7, Webpack, Rails Demo
 
 
-# Videos
+This is a cherry pick of [react_on_rails gem](https://github.com/shakacode/react_on_rails) tutorial
 
-### [React On Rails Tutorial Series](https://www.youtube.com/playlist?list=PL5VAKH-U1M6dj84BApfUtvBjvF-0-JfEU)
+As we needed the use of Webpack 2 and we wanted hot-loadable Rails and React development, we mirrored the tutorial instead of using the generator.
 
-1. [History and Motivation](https://youtu.be/F4oymbUHvoY)
-2. [Basic Tutorial Walkthrough](https://youtu.be/_bjScw60FBk)
-3. [Code Walkthrough](https://youtu.be/McQ9UM-_ocQ)
+This is very alpha, proof of concept work.
 
-## NEWS
 
-* We're considering putting in a react-native client into this repo under a mobile folder. We have several open PRs on this.
-* We have [some other open PRs](https://github.com/shakacode/react-webpack-rails-tutorial/pulls) of things we may soon be incorporating, including localization and action cable! Stay tuned! If you have opinions of what should or should not get merged, get in touch with [justin@shakacode.com](mailto:justin@shakacode.com).
 
-This tutorial app demonstrates advanced functionality beyond what's provided by the React on Rails generators, mostly in the area of Webpack and React usage. Due to the architecture of placing all client side assets in the `/client` directory, React on Rails supports just about anything that Webpack and JavaScript can do, such as:
 
 1. **Handling of Sass and Bootstrap**: This tutorial uses [CSS modules via Webpack](https://github.com/css-modules/css-modules) so that all your client side configuration can be handled in a pure JavaScript tooling manner. This allows for hot reloading and a better separation of concerns (Rails for server-side functionality versus NPM/Webpack for all things client side). The alternative approach of using the traditional Rails Asset Pipeline for your CSS is simpler and supported by [React on Rails](https://github.com/shakacode/react_on_rails).
 1. **Hot Reloading with Rails**: If you want to implement hot reloading after using React on Rails generators, then see [Hot Reloading of Assets For Rails Development](https://github.com/shakacode/react_on_rails/blob/master/docs/additional-reading/hot-reloading-rails-development.md). The tutorial has different startup scripts than the generators. The dev mode has the WebapackDev server providing the JS and CSS assets to the tutorial. This means you get **HOT RELOADING** of your JS and CSS within your Rails app.
@@ -30,8 +16,8 @@ This tutorial app demonstrates advanced functionality beyond what's provided by 
 # React, Redux, React-Bootstrap, ES7, Webpack, Rails Demo
 ## Server Rendering via the [react_on_rails gem](https://github.com/shakacode/react_on_rails)
 
-#### Live at [www.reactrails.com](http://www.reactrails.com/)
-##### Check out our [react-native client for this project!](https://github.com/shakacode/react-native-tutorial)
+
+
 This is a simple example application that illustrates the use of ReactJs to implement a commenting system. Front-end code leverages both ReactJs and Rails asset pipeline while the backend is 100% Rails. It shows off a little bit of the interactivity of a ReactJs application, allowing the commmenter to choose the form layout. `react-bootstrap` is used for the React components. A pure Rails UI generated from scaffolding is shown for comparison.
 
 You can see this tutorial live here: [http://reactrails.com/](http://reactrails.com/)
@@ -53,10 +39,7 @@ You can see this tutorial live here: [http://reactrails.com/](http://reactrails.
 + [Process Management during Development](#process-management-during-development)
 + [Rendering with Express Server](#rendering-with-express-server)
   + [Setup](#setup)
-+ [Contributors](#contributors)
-  + [About ShakaCode](#about-shakacode)
-  + [RubyMine and WebStorm](#rubymine-and-webstorm)
-+ [Open Code of Conduct](#open-code-of-conduct)
+
 
 ## Demoed Functionality
 
@@ -137,7 +120,7 @@ Save a change to a JSX file and see it update immediately in the browser! Note, 
       ```
 + **Development Mode**: Two flavors: Hot reloading assets (JavaScript & CSS) and Static loading.
    + **Hot Loading**: We modify the URL in [application.html.erb](app/views/layouts/application.html.erb) based on whether or not we're in production mode using the helpers `env_stylesheet_link_tag` and `env_javascript_include_tag`. *Development mode* uses the Webpack Dev server running on port 3500. Other modes (production/test) use precompiled files. See `Procfile.hot`. `Procfile.dev` also starts this mode. Note, *you don't have to refresh a Rails web page to view changes to JavaScript or CSS*.
-  
+
    + **Static Loading**: This uses webpack to create physical files of the assets, both JavaScript and CSS. This is essentially what we had before we enabled *Hot Loading*. You have to *refresh* the page to see changes to JavaScript or CSS. See `Procfile.static`. It is important to note that tests will use the same statically generated files.
 
       + Note, the following view helpers do the magic to make this work:
@@ -221,23 +204,3 @@ We no longer recommend using an express server with Rails. It's simply not neces
 1. `foreman start -f Procfile.express`
 2. Open a browser tab to http://localhost:4000 for the Hot Module Replacement Example just using an express server (no Rails involved). This is good for fast prototyping of React components. However, this setup is not as useful now that we have hot reloading working for Rails!
 3. Try Hot Reloading steps below!
-
-## Contributors
-[The Shaka Code team!](http://www.shakacode.com/about/), led by [Justin Gordon](https://github.com/justin808/), along with with many others. See [contributors.md](docs/contributors.md)
-
-### RubyMine and WebStorm
-Special thanks to [JetBrains](https://www.jetbrains.com) for their great tools: [RubyMine](https://www.jetbrains.com/ruby/) and [WebStorm](https://www.jetbrains.com/webstorm/). Some developers of this project use RubyMine at the top level, mostly for Ruby work, and we use WebStorm opened up to the `client` directory to focus on JSX and Sass files.
-
-## Open Code of Conduct
-This project adheres to the [Open Code of Conduct](http://todogroup.org/opencodeofconduct/#fetch/opensource@github.com). By participating, you are expected to uphold this code.
-
-## About [ShakaCode](http://www.shakacode.com/)
-If you would like to know more about ShakaCode, please read [Who Is ShakaCode](http://www.shakacode.com/2015/09/17/who-is-shaka-code.html) and [Success the ShakaCode Way!](http://www.shakacode.com/2015/11/26/success-the-shakacode-way.html)
-
-Please visit [our forums!](http://forum.shakacode.com). We've got a [category dedicated to react_on_rails](http://forum.shakacode.com/c/rails/reactonrails).
-
-If you're looking for consulting on a project using React and Rails, email us at [contact@shakacode.com](mailto:contact@shakacode.com)! See our blog post [Can ShakaCode Help You?](https://blog.shakacode.com/can-shakacode-help-you-4a5b1e5a8a63#.jex6tg9w9) for more information on how we can help.
-
-You can also join our slack room for some free advice. Email us for an invite.
-
-We're looking for great developers that want to work with Rails + React (and react-native!) with a remote-first, distributed, worldwide team, for our own products, client work, and open source. [More info here](http://www.shakacode.com/about/index.html#work-with-us).

@@ -10,7 +10,9 @@ This is very alpha, proof of concept work.
 
 
 
-1. **Handling of Sass and Bootstrap**: This tutorial uses [CSS modules via Webpack](https://github.com/css-modules/css-modules) so that all your client side configuration can be handled in a pure JavaScript tooling manner. This allows for hot reloading and a better separation of concerns (Rails for server-side functionality versus NPM/Webpack for all things client side). The alternative approach of using the traditional Rails Asset Pipeline for your CSS is simpler and supported by [React on Rails](https://github.com/shakacode/react_on_rails).
+1. Moving  to use PostCSS
+
+**Handling of Sass and Bootstrap**:  [CSS modules via Webpack](https://github.com/css-modules/css-modules) so that all your client side configuration can be handled in a pure JavaScript tooling manner. This allows for hot reloading and a better separation of concerns (Rails for server-side functionality versus NPM/Webpack for all things client side). The alternative approach of using the traditional Rails Asset Pipeline for your CSS is simpler and supported by [React on Rails](https://github.com/shakacode/react_on_rails).
 1. **Hot Reloading with Rails**: If you want to implement hot reloading after using React on Rails generators, then see [Hot Reloading of Assets For Rails Development](https://github.com/shakacode/react_on_rails/blob/master/docs/additional-reading/hot-reloading-rails-development.md). The tutorial has different startup scripts than the generators. The dev mode has the WebapackDev server providing the JS and CSS assets to the tutorial. This means you get **HOT RELOADING** of your JS and CSS within your Rails app.
 
 # React, Redux, React-Bootstrap, ES7, Webpack, Rails Demo

@@ -1,6 +1,6 @@
 /* eslint no-console: 0 */
 
-export default function logger({ getState }) {
+const logger = ({ getState }) => {
   return (next) => (action) => {
     console.log('will dispatch', action);
 
@@ -24,3 +24,5 @@ export default function logger({ getState }) {
     return result;
   };
 }
+
+export default logger

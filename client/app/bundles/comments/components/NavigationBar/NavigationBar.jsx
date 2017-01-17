@@ -16,7 +16,7 @@ const NavigationBar = (props) => {
   return (
     <Navbar>
      <Nav>
-      <NavItem href="http://www.shakacode.com">ShakaCode</NavItem>
+      <NavItem href="/">Home</NavItem>
      
       <NavItem href={paths.ROUTER_PATH}>React Router Demo</NavItem>
      </Nav>   
